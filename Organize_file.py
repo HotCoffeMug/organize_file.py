@@ -91,12 +91,16 @@ for file in filename2:
 
 filename=glob.glob("C:/Users/marco/Downloads/*")
 documents=['.pdf','.docx','.doc','.txt', '.log']
-media=['.jpeg','.jpg','.svg','.png','.PNG','.mp4','.mp3',]
+media=['.jpeg','.jpg','.svg','.png','.PNG']
+video=['.mp4']
+music=['.mp3']
 setupFiles=['.exe','.msi']
 compressedFiles=['.zip', '.rar', '.7z']
-files=['.apk', '.jar', '.fdmdownload', '.vbox-extpack']
-DocumentsLocation='C:/Users/marco/Downloads/documents'
-mediaLocation='C:/Users/marco/Downloads/media'
+files=['.apk', '.jar', '.fdmdownload', '.vbox-extpack', '.xapk']
+DocumentsLocation='C:/Users/marco/Documents'
+mediaLocation='C:/Users/marco/Pictures'
+videoLocation='C:/Users/marco/Videos'
+musicLocation='C:/Users/marco/Music'
 setupFilesLocation='C:/Users/marco/Downloads/setupFiles'
 compressedFilesLocation='C:/Users/marco/Downloads/compressedFiles'
 FilesLocation='C:/Users/marco/Downloads/Files'
@@ -132,3 +136,16 @@ for file in filename:
         else:
             os.mkdir(FilesLocation)
             shutil.move(file,FilesLocation)
+    if os.path.splitext(file)[1] in files:
+        if(path.exists(videoLocation)):
+            shutil.move(file,videoLocation)
+        else:
+            os.mkdir(videoLocation)
+            shutil.move(file,videoLocation)
+    if os.path.splitext(file)[1] in files:
+        if os.path.exists(musicLocation):
+            shutil.move(file,musicLocation)
+        else:
+            os.mkdir(musicLocation)
+            shutil.move(musicLocation)
+            
